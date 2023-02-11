@@ -56,7 +56,7 @@ const HomePage = () => {
           </Box>
         </Grid>
       </Grid>
-      <Botbar>
+      <Botbar display={{ md: "flex", sm: "none" }}>
         <Box>
           <Typography variant="h4" color="white">
             Don’t miss what’s happening

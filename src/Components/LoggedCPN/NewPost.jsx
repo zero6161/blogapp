@@ -33,7 +33,7 @@ const NewPost = ({ setOpen }) => {
         component="form"
         display="flex"
         flexDirection="column"
-        gap={2}
+        gap={3}
         mt={5}
         onSubmit={pushPost}
       >

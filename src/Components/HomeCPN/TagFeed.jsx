@@ -46,7 +46,7 @@ const TagFeed = ({ bgColor }) => {
           <CardActionArea>
             <CardContent>
               <Typography gutterBottom variant="subtitle2" component="div">
-                Chủ đề nổi bật ở Việt Nam
+                Trending in Vietnam
               </Typography>
               <Typography variant="h6" sx={{ fontWeight: "bold" }}>
                 {tag}

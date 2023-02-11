@@ -59,7 +59,13 @@ const Add = () => {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box width={400} height="80vh" bgcolor="white" p={3} borderRadius={5}>
+        <Box
+          width={{ md: 400, sm: "100vw" }}
+          height={{ md: "80vh", sm: "50vh" }}
+          bgcolor="white"
+          p={3}
+          borderRadius={5}
+        >
           <Typography variant="h6" color="gray" textAlign="center">
             Create a post
           </Typography>

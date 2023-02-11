@@ -65,7 +65,7 @@ const LeftBarLogged = () => {
                   <ListItemIcon>
                     <Settings fontSize="large" />
                   </ListItemIcon>
-                  <ListItemText primary={"Cài Đặt"} />
+                  <ListItemText primary={"Setting"} />
                 </ListItemButton>
               </ListItem>
             </List>
@@ -75,7 +75,7 @@ const LeftBarLogged = () => {
                   <ListItemIcon>
                     <ExitToApp />
                   </ListItemIcon>
-                  <ListItemText primary={"Đăng Xuất"} />
+                  <ListItemText primary={"Log out "} />
                 </ListItemButton>
               </ListItem>
             </List>
