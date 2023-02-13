@@ -40,7 +40,7 @@ const LoginPage = () => {
             name="email"
             autoFocus
             id="email"
-            label="Tên người dùng"
+            label="Email"
             autoComplete="email"
             variant="filled"
             value={email}
@@ -61,7 +61,9 @@ const LoginPage = () => {
             variant="filled"
             onChange={(e) => setPassword(e.target.value)}
           />
-          <Button type="submit">Sign in</Button>
+          <Button sx={{ mt: 2 }} variant="contained" fullWidth type="submit">
+            Sign in
+          </Button>
         </Box>
       </Box>
     </>

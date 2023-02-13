@@ -1,44 +1,91 @@
-import * as React from "react";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Modal from "@mui/material/Modal";
-
-const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 400,
-  bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
-  p: 4,
+import { Alert, Box, Button, TextField, Typography } from "@mui/material";
+import { httpClient } from "../../getApi";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { updateUserData } from "../../Redux/userSlice";
+import { Twitter } from "@mui/icons-material";
+const SignUp = () => {
+  const [userName, setUserName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    httpClient
+      .post("users", {
+        user: {
+          username: userName,
+          email: email,
+          password: password,
+        },
+      })
+      .then((res) => {
+        sessionStorage.setItem("userToken", res.data.user.token);
+        dispatch(updateUserData(res.data.user));
+        navigate("/home");
+      })
+      .catch((err) => {
+        alert("UserName or Email has already been taken");
+      });
+  };
+  return (
+    <>
+      {" "}
+      <Box display="flex" flexDirection="column" alignItems="center">
+        <Twitter color="primary" fontSize="large" />
+        <Typography variant="h6" mt={1}>
+          Sign in to Twitter
+        </Typography>
+        <Box component="form" onSubmit={handleSubmit}>
+          <TextField
+            fullWidth
+            name="User Name"
+            autoFocus
+            id="username"
+            label="User Name"
+            autoComplete="email"
+            variant="filled"
+            value={userName}
+            onChange={(e) => setUserName(e.target.value)}
+            sx={{
+              mt: 2,
+            }}
+          />
+          <TextField
+            fullWidth
+            name="email"
+            autoFocus
+            id="email"
+            label="Email"
+            autoComplete="email"
+            variant="filled"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            sx={{
+              my: 2,
+            }}
+          />
+          <TextField
+            name="password"
+            required
+            type="password"
+            value={password}
+            fullWidth
+            autoComplete="current-password"
+            id="password"
+            label="Mật khẩu của bạn"
+            variant="filled"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <Button sx={{ mt: 3 }} variant="contained" fullWidth type="submit">
+            Sign up
+          </Button>
+        </Box>
+      </Box>
+    </>
+  );
 };
 
-export default function SignUp() {
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-
-  return (
-    <div>
-      <Button onClick={handleOpen}>Open modal</Button>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            Text in a modal
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-          </Typography>
-        </Box>
-      </Modal>
-    </div>
-  );
-}
+export default SignUp;
