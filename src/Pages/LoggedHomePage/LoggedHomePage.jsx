@@ -43,7 +43,7 @@ const LoggedHomePage = () => {
             bgcolor={"background.default"}
             color={"text.primary"}
             direction="row"
-            spacing={2}
+            spacing={{ md: 2, xs: "0", sm: "0" }}
             justifyContent="space-between"
           >
             <LeftBarLogged />

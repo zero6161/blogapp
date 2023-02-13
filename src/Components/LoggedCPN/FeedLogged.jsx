@@ -64,7 +64,6 @@ const FeedLogged = () => {
     dispatch(changlePost(newValue));
     dispatch(handleType(""));
   };
-  console.log(type);
   const setFavourite = (article) => {
     // TO DO: update state articles
     const index = feed.findIndex((a) => a.slug === article.slug);
@@ -100,7 +99,7 @@ const FeedLogged = () => {
           >
             <Tab value="homepage" label="Trang Chủ" />
             <Tab value="youfeed" label="Người Bạn Quan Tâm" />
-            <Tab value={type} label={type} />
+            {type && <Tab value={type} label={type} />}
           </Tabs>
           <TabPanel value={value} index={"homepage"}>
             <InfiniteScroll

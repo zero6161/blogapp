@@ -16,6 +16,7 @@ import { LoadingCircle, TabPanel } from "../LoggedCPN/FeedLogged";
 import { Container } from "../LoggedCPN/YouFeed";
 import { httpClient } from "../../getApi";
 import { useNavigate, useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 const UserProfileMain = ({ postUser, favoritePost }) => {
   const [value, setValue] = React.useState("userpage");
   const [profile, setProfile] = useState([]);
@@ -35,6 +36,8 @@ const UserProfileMain = ({ postUser, favoritePost }) => {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+  const userName = useSelector((state) => state.user.user.username);
+  console.log(userName);
   const BackgroundImg = styled(Box)({
     backgroundImage: `url(${paper})`,
     minWidth: "100vw",
@@ -45,10 +48,6 @@ const UserProfileMain = ({ postUser, favoritePost }) => {
     backgroundSize: "cover",
   });
   const folower = () => {
-    // if (!getUser) {
-    //   navigate("/login");
-    //   return;
-    // }
     httpClient
       .post(`profiles/${profile.username}/follow`)
       .then(() => userDetail());
@@ -77,7 +76,7 @@ const UserProfileMain = ({ postUser, favoritePost }) => {
         </Box>
       </Box>
       <Box marginY={3} display="flex" justifyContent="space-around">
-        {usernamedetail === profile.username ? (
+        {usernamedetail === userName ? (
           <Button onClick={() => navigate("/setting")} variant="outlined">
             <Typography variant="body2">
               Setting Your Profile {profile.username}

@@ -82,15 +82,18 @@ const Comments = ({ slugURL }) => {
               </CardContent>
             </Card>
           ))}
-        <Box component="form" onSubmit={postComment}>
+        <Box mt={2} component="form" onSubmit={postComment}>
           <TextField
             id="standard-basic"
-            label="Để Lại Bình Luận"
+            label="Input your comment"
             variant="standard"
             fullWidth
             value={valueInput}
             onChange={(e) => setValueInput(e.target.value)}
           />
+          <Button type="submit" variant="containerd">
+            Send
+          </Button>
         </Box>
       </Box>
     </>

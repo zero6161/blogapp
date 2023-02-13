@@ -37,10 +37,6 @@ const Post = ({ item, index, setFavourite }) => {
   };
 
   const favoritedd = () => {
-    // if (!getUser) {
-    //   navigate("/login");
-    //   return;
-    // }
     if (setFavourite) setFavourite(item);
 
     httpClient.post(`articles/${item.slug}/favorite`);
@@ -49,7 +45,7 @@ const Post = ({ item, index, setFavourite }) => {
     httpClient.delete(`articles/${item.slug}`).then(() => navigate(0));
   };
   const unFavorite = () => {
-    // if (setFavourite) setFavourite(item);
+    if (setFavourite) setFavourite(item);
     httpClient.delete(`articles/${item.slug}/favorite`);
   };
 
@@ -115,9 +111,8 @@ const Post = ({ item, index, setFavourite }) => {
             <CardContent>
               {item.tagList.map((item, index) => (
                 <Link
-                  href={item}
                   mr={3}
-                  underline="hover"
+                  underline="none"
                   variant="caption"
                   key={index}
                 >{`#${item}`}</Link>
@@ -130,7 +125,7 @@ const Post = ({ item, index, setFavourite }) => {
                     item.favorited ? unFavorite() : favoritedd();
                   }}
                 >
-                  <Favorite color={item.favorited ? "error" : "inherit"} />
+                  <Favorite color={item.favorited ? "error" : "none"} />
                 </IconButton>
                 <Typography alignSelf="center" variant="body1">
                   {item.favoritesCount}
