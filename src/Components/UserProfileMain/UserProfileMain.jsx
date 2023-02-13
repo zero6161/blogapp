@@ -40,7 +40,7 @@ const UserProfileMain = ({ postUser, favoritePost }) => {
   console.log(userName);
   const BackgroundImg = styled(Box)({
     backgroundImage: `url(${paper})`,
-    minWidth: "100vw",
+    // minWidth: "100vw",
     height: "50vh",
     width: "auto",
     backgroundPosition: "center",

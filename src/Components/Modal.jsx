@@ -19,7 +19,7 @@ export const ModalLogin = (props) => {
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: 400,
+    width: { md: 400, sm: "80vw", xs: "80vw" },
     height: { md: 400, sm: "80vh", xs: "80vh" },
     bgcolor: "background.paper",
     border: "1px solid #000",
