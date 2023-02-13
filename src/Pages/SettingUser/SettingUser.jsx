@@ -85,7 +85,6 @@ const SettingUser = () => {
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
-            gap: 4,
           }}
         >
           <Box>
@@ -97,7 +96,7 @@ const SettingUser = () => {
               variant="outlined"
             />
           </Box>
-          <Box>
+          <Box mt={2}>
             <Typography>Your Bio</Typography>
             <TextField
               value={bio || ""}
@@ -106,7 +105,7 @@ const SettingUser = () => {
               variant="outlined"
             />
           </Box>
-          <Box>
+          <Box mt={2}>
             <Typography>Your Email</Typography>
             <TextField
               value={email}
@@ -117,7 +116,7 @@ const SettingUser = () => {
               variant="outlined"
             />
           </Box>
-          <Box>
+          <Box mt={2}>
             <Typography>Password</Typography>
             <TextField
               value={password}
@@ -129,6 +128,9 @@ const SettingUser = () => {
             />
           </Box>
           <Button
+            sx={{
+              marginTop: 2,
+            }}
             onClick={hanleSubmit}
             variant="contained"
             type="submit"

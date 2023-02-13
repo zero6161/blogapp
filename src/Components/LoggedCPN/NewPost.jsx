@@ -34,7 +34,6 @@ const NewPost = ({ setOpen }) => {
         display="flex"
         flexDirection="column"
         flexBasis="auto"
-        gap={{ md: 3, sm: 5 }}
         mt={5}
         onSubmit={pushPost}
       >
@@ -49,7 +48,7 @@ const NewPost = ({ setOpen }) => {
             variant="outlined"
           />
         </Box>
-        <Box>
+        <Box mt={2}>
           <Typography>What's this article about</Typography>
           <TextField
             id="outlined-basic"
@@ -61,7 +60,7 @@ const NewPost = ({ setOpen }) => {
             placeholde="What's this article about"
           />
         </Box>
-        <Box>
+        <Box mt={2}>
           <Typography>Write your article (in markdown)</Typography>
           <TextField
             id="outlined-basic"
@@ -74,7 +73,7 @@ const NewPost = ({ setOpen }) => {
             onChange={(e) => setBody(e.target.value)}
           />
         </Box>
-        <Box>
+        <Box mt={2}>
           <Typography>Enter tas</Typography>
           <TextField
             id="outlined-basic"
@@ -84,7 +83,13 @@ const NewPost = ({ setOpen }) => {
             fullWidth
           />
         </Box>
-        <Button type="submit" variant="contained">
+        <Button
+          sx={{
+            marginTop: 2,
+          }}
+          type="submit"
+          variant="contained"
+        >
           Submit
         </Button>
       </Box>
