@@ -65,7 +65,7 @@ const HomePage = () => {
             People on Twitter are the first to know.
           </Typography>
         </Box>
-        <Box alignSelf="center">
+        <Box alignItems="center">
           <Button
             sx={{
               borderRadius: 4,

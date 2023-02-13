@@ -32,6 +32,7 @@ const Add = () => {
     alignItems: "center",
     gap: "10px",
     margin: "5px 0",
+    justifyContent: "center",
   });
   const userData = useSelector((state) => state.user.user);
   const StyledModal = styled(Modal)({
@@ -61,7 +62,7 @@ const Add = () => {
       >
         <Box
           width={{ md: 400, sm: "100vw" }}
-          height={{ md: "80vh", sm: "50vh" }}
+          height={"auto"}
           bgcolor="white"
           p={3}
           borderRadius={5}
@@ -77,7 +78,7 @@ const Add = () => {
                 height: 30,
               }}
             />
-            <Typography fontWeight={500} variant="body2">
+            <Typography fontWeight={500} variant="body1">
               {userData.username}
             </Typography>
           </UserBox>

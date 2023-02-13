@@ -66,7 +66,7 @@ const Post = ({ item, index, setFavourite }) => {
   return (
     <>
       <Box key={index}>
-        <Card key={index} sx={{ m: 2 }}>
+        <Card key={index} sx={{ margin: 2 }}>
           <ContainerBox>
             <CardHeader
               avatar={<Avatar src={item.author.image} />}

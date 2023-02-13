@@ -78,9 +78,9 @@ const SettingUser = () => {
           component="form"
           onSubmit={hanleSubmit}
           sx={{
-            p: 5,
+            p: 3,
             mx: "30px",
-            my: "15px",
+            my: "5px",
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
@@ -88,42 +88,46 @@ const SettingUser = () => {
             gap: 4,
           }}
         >
-          {/* <Box display="flex">
-            <Avatar sx={{ margin: 1 }} src={userData.image} />
-            <Input disableUnderline type="file" />
-          </Box> */}
-          <TextField
-            value={userName}
-            onChange={(e) => setUserName(e.target.value)}
-            fullWidth
-            label="Tên Tài Khoản"
-            variant="outlined"
-          />
-          <TextField
-            value={bio || ""}
-            fullWidth
-            onChange={(e) => setBio(e.target.value)}
-            label="Giới Thiệu"
-            variant="outlined"
-          />
-          <TextField
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            fullWidth
-            label="Email"
-            autoComplete="username"
-            type="email"
-            variant="outlined"
-          />
-          <TextField
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            fullWidth
-            autoComplete="current-password"
-            label="Mật Khẩu"
-            type="password"
-            variant="outlined"
-          />
+          <Box>
+            <Typography>User name</Typography>
+            <TextField
+              value={userName}
+              onChange={(e) => setUserName(e.target.value)}
+              fullWidth
+              variant="outlined"
+            />
+          </Box>
+          <Box>
+            <Typography>Your Bio</Typography>
+            <TextField
+              value={bio || ""}
+              fullWidth
+              onChange={(e) => setBio(e.target.value)}
+              variant="outlined"
+            />
+          </Box>
+          <Box>
+            <Typography>Your Email</Typography>
+            <TextField
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              fullWidth
+              autoComplete="username"
+              type="email"
+              variant="outlined"
+            />
+          </Box>
+          <Box>
+            <Typography>Password</Typography>
+            <TextField
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              fullWidth
+              autoComplete="current-password"
+              type="password"
+              variant="outlined"
+            />
+          </Box>
           <Button
             onClick={hanleSubmit}
             variant="contained"

@@ -19,6 +19,7 @@ import { ModalLogin } from "../Modal";
 
 const Rightbar = () => {
   const navigate = useNavigate();
+  const [open, setOpen] = useState(false);
   const handleOpenLogin = () => {
     setOpen(true);
     navigate("login");
@@ -36,7 +37,6 @@ const Rightbar = () => {
     navigate("/");
   };
 
-  const [open, setOpen] = useState(false);
   return (
     <>
       <Box>

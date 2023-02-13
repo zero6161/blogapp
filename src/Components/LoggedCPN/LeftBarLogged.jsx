@@ -20,11 +20,14 @@ import {
   Twitter,
 } from "@mui/icons-material";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { updateUserData } from "../../Redux/userSlice";
 
 const LeftBarLogged = () => {
+  const dispatch = useDispatch();
   const handleLogOut = () => {
     sessionStorage.removeItem("userToken", "password");
+    dispatch(updateUserData(""));
   };
   const userData = useSelector((state) => state.user.user);
   return (

@@ -8,8 +8,10 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea, Link } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { changlePost, handleOpen, handleType } from "../../Redux/tagsSlice";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const TagFeed = ({ bgColor }) => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [tagName, setTagName] = useState([]);
   const [tagName1, setTagName1] = useState("");
@@ -25,12 +27,14 @@ const TagFeed = ({ bgColor }) => {
     tags();
   }, []);
 
+  const auth = useSelector((state) => state.user.user.token);
+  console.log(auth);
   const handleTag = (hagTag) => {
     dispatch(handleType(hagTag));
     dispatch(changlePost(hagTag));
   };
   const hagTagname = useSelector((state) => state.tag);
-  console.log(hagTagname);
+
   return (
     <>
       {tagName.map((tag, i) => (

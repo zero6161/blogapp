@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Button, styled, TextField } from "@mui/material";
+import { Box, Button, styled, TextField, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { httpClient } from "../../getApi";
 import { useDispatch } from "react-redux";
@@ -34,47 +34,56 @@ const NewPost = ({ setOpen }) => {
         display="flex"
         flexDirection="column"
         flexBasis="auto"
-        gap={3}
+        gap={{ md: 3, sm: 5 }}
         mt={5}
         onSubmit={pushPost}
       >
-        <TextField
-          value={title}
-          id="outlined-basic"
-          onChange={(e) => setTitle(e.target.value)}
-          label="Tiêu Đề Bài Viết"
-          fullWidth
-          required
-          variant="outlined"
-        />
-        <TextField
-          id="outlined-basic"
-          label="Bài Viết Về Chủ Đề"
-          fullWidth
-          required
-          variant="outlined"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        />
-        <TextField
-          id="outlined-basic"
-          label="Nội Dung"
-          variant="outlined"
-          multiline
-          required
-          value={body}
-          fullWidth
-          rows={3}
-          onChange={(e) => setBody(e.target.value)}
-        />
-        <TextField
-          id="outlined-basic"
-          label="Tag"
-          value={tagList}
-          variant="outlined"
-          onChange={(e) => setTagList(e.target.value)}
-          fullWidth
-        />
+        <Box>
+          <Typography>Article Title</Typography>
+          <TextField
+            value={title}
+            id="outlined-basic"
+            onChange={(e) => setTitle(e.target.value)}
+            fullWidth
+            required
+            variant="outlined"
+          />
+        </Box>
+        <Box>
+          <Typography>What's this article about</Typography>
+          <TextField
+            id="outlined-basic"
+            fullWidth
+            required
+            variant="outlined"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            placeholde="What's this article about"
+          />
+        </Box>
+        <Box>
+          <Typography>Write your article (in markdown)</Typography>
+          <TextField
+            id="outlined-basic"
+            variant="outlined"
+            multiline
+            required
+            value={body}
+            fullWidth
+            rows={3}
+            onChange={(e) => setBody(e.target.value)}
+          />
+        </Box>
+        <Box>
+          <Typography>Enter tas</Typography>
+          <TextField
+            id="outlined-basic"
+            value={tagList}
+            variant="outlined"
+            onChange={(e) => setTagList(e.target.value)}
+            fullWidth
+          />
+        </Box>
         <Button type="submit" variant="contained">
           Submit
         </Button>
