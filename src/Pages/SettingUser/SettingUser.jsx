@@ -79,8 +79,8 @@ const SettingUser = () => {
           onSubmit={hanleSubmit}
           sx={{
             p: 3,
-            mx: "30px",
-            my: "5px",
+            mx: 5,
+            my: "auto",
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
