@@ -2,6 +2,7 @@ import {
   Avatar,
   Box,
   Button,
+  IconButton,
   Input,
   Paper,
   styled,
@@ -9,6 +10,7 @@ import {
   Typography,
 } from "@mui/material";
 import React, { useState, useEffect } from "react";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import bgImg from "../../Components/image/background.jpg";
@@ -71,6 +73,9 @@ const SettingUser = () => {
   return (
     <Background>
       <Container elevation={12}>
+        <IconButton onClick={() => navigate(-1)}>
+          <ArrowBackIcon />
+        </IconButton>
         <Typography marginTop="20px" textAlign="center" variant="h6">
           Chỉnh Sửa Hồ Sơ
         </Typography>
