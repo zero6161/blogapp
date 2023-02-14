@@ -10,7 +10,7 @@ const LeftBar = () => {
           <Twitter fontSize="large" />
         </IconButton>
       </Box>
-      <Box>
+      {/* <Box>
         <IconButton color="inherit" size="large">
           <Tag fontSize="large" />
         </IconButton>
@@ -19,7 +19,7 @@ const LeftBar = () => {
         <IconButton size="large">
           <SettingsRounded fontSize="large" color="action" />
         </IconButton>
-      </Box>
+      </Box> */}
     </>
   );
 };
