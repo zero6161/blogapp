@@ -29,21 +29,20 @@ const ProfilePage = () => {
       .catch((error) => console.log(error));
   };
   const setFavourite = (article) => {
-    const index = favoritePost.findIndex((a) => a.slug === article.slug);
+    const index = postUser.findIndex((a) => a.slug === article.slug);
     if (index < 0) return;
-    const cloneUserFeeds = [...favoritePost];
+    const cloneUserFeeds = [...postUser];
     const selectedArticle = { ...cloneUserFeeds[index] };
     const currentFavourite = selectedArticle.favorited;
     selectedArticle.favorited = !currentFavourite;
     selectedArticle.favoritesCount += currentFavourite ? -1 : 1;
     cloneUserFeeds[index] = selectedArticle;
-    setfavoritePost(cloneUserFeeds);
+    setPostUser(cloneUserFeeds);
   };
   useEffect(() => {
     postUserArticles();
     favoriteUserArticles();
-  }, [favoritePost]);
-
+  }, []);
   return (
     <>
       <Box>
