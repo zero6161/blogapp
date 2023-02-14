@@ -65,7 +65,6 @@ const FeedLogged = () => {
     dispatch(handleType(""));
   };
   const setFavourite = (article) => {
-    // TO DO: update state articles
     const index = feed.findIndex((a) => a.slug === article.slug);
     if (index < 0) return;
     const cloneUserFeeds = [...feed];

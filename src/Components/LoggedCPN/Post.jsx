@@ -25,7 +25,7 @@ import { Outlet, useNavigate } from "react-router-dom";
 import { Modaldetail } from "../Modal";
 import { httpClient } from "../../getApi";
 import { useSelector } from "react-redux";
-const Post = ({ item, index, setFavourite }) => {
+const Post = ({ item, index, setFavourite, userDetail }) => {
   const navigate = useNavigate();
   const handleCloseLogin = () => {
     setOpen(false);
@@ -50,7 +50,6 @@ const Post = ({ item, index, setFavourite }) => {
   };
 
   const [open, setOpen] = useState(false);
-  const [isDrawOpen, setIsDrawOpen] = useState(false);
 
   const ContainerBox = styled(Box)({
     px: 2,

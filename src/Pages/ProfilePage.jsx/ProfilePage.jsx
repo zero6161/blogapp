@@ -9,7 +9,7 @@ import SlugPage from "../SlugPage/SlugPage";
 const ProfilePage = () => {
   const [userKey, setUserKey] = useState("myarticles");
   const [postUser, setPostUser] = useState([]);
-  const [favoritePost, setfavoritePost] = useState(null);
+  const [favoritePost, setfavoritePost] = useState([]);
   const { usernamedetail } = useParams();
 
   const postUserArticles = () => {
@@ -28,11 +28,21 @@ const ProfilePage = () => {
       })
       .catch((error) => console.log(error));
   };
-
+  const setFavourite = (article) => {
+    const index = favoritePost.findIndex((a) => a.slug === article.slug);
+    if (index < 0) return;
+    const cloneUserFeeds = [...favoritePost];
+    const selectedArticle = { ...cloneUserFeeds[index] };
+    const currentFavourite = selectedArticle.favorited;
+    selectedArticle.favorited = !currentFavourite;
+    selectedArticle.favoritesCount += currentFavourite ? -1 : 1;
+    cloneUserFeeds[index] = selectedArticle;
+    setfavoritePost(cloneUserFeeds);
+  };
   useEffect(() => {
     postUserArticles();
     favoriteUserArticles();
-  }, []);
+  }, [favoritePost]);
 
   return (
     <>
@@ -45,7 +55,11 @@ const ProfilePage = () => {
           justifyContent="space-between"
         >
           <LeftBarLogged />
-          <UserProfileMain postUser={postUser} favoritePost={favoritePost} />
+          <UserProfileMain
+            postUser={postUser}
+            setFavourite={setFavourite}
+            favoritePost={favoritePost}
+          />
           <RightBarLogged />
         </Stack>
       </Box>

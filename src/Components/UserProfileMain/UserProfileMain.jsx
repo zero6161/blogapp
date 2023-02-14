@@ -17,7 +17,7 @@ import { Container } from "../LoggedCPN/YouFeed";
 import { httpClient } from "../../getApi";
 import { useNavigate, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
-const UserProfileMain = ({ postUser, favoritePost }) => {
+const UserProfileMain = ({ postUser, favoritePost, setFavourite }) => {
   const [value, setValue] = React.useState("userpage");
   const [profile, setProfile] = useState([]);
   const { usernamedetail } = useParams();
@@ -57,6 +57,17 @@ const UserProfileMain = ({ postUser, favoritePost }) => {
       .delete(`profiles/${profile.username}/follow`)
       .then(() => userDetail());
   };
+  // const setFavourite = (article) => {
+  //   const index = profile.findIndex((a) => a.slug === article.slug);
+  //   if (index < 0) return;
+  //   const cloneUserFeeds = [...profile];
+  //   const selectedArticle = { ...cloneUserFeeds[index] };
+  //   const currentFavourite = selectedArticle.favorited;
+  //   selectedArticle.favorited = !currentFavourite;
+  //   selectedArticle.favoritesCount += currentFavourite ? -1 : 1;
+  //   cloneUserFeeds[index] = selectedArticle;
+  //   setProfile(cloneUserFeeds);
+  // };
   return (
     <Box flex={4}>
       <BackgroundImg />
@@ -110,7 +121,7 @@ const UserProfileMain = ({ postUser, favoritePost }) => {
         <TabPanel value={value} index={"userpage"}>
           {postUser.map((item, index) => (
             <Box key={index}>
-              <Post item={item} />
+              <Post setFavourite={setFavourite} item={item} />
             </Box>
           ))}
         </TabPanel>
