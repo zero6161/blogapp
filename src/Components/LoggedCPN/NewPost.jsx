@@ -11,7 +11,6 @@ import { useNavigate } from "react-router-dom";
 import { httpClient } from "../../getApi";
 import { useDispatch } from "react-redux";
 import { upDatePost } from "../../Redux/postSlice";
-import CloseSharpIcon from "@mui/icons-material/CloseSharp";
 
 const NewPost = ({ setOpen }) => {
   const [title, setTitle] = useState("");
@@ -46,9 +45,6 @@ const NewPost = ({ setOpen }) => {
         mt={5}
         onSubmit={pushPost}
       >
-        <IconButton onClick={() => navigate(-1)}>
-          <CloseSharpIcon />
-        </IconButton>
         <Box>
           <Typography>Article Title</Typography>
           <TextField

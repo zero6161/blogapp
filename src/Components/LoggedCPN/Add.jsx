@@ -14,6 +14,7 @@ import React, { useState } from "react";
 import { Add as AddIcon } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import CloseSharpIcon from "@mui/icons-material/CloseSharp";
 import NewPost from "./NewPost";
 
 const Add = () => {
@@ -67,6 +68,14 @@ const Add = () => {
           p={3}
           borderRadius={5}
         >
+          <IconButton
+            sx={{
+              display: { md: "none", sm: "inline-block", xs: "inline-block" },
+            }}
+            onClick={() => navigate(-1)}
+          >
+            <CloseSharpIcon />
+          </IconButton>
           <Typography variant="h6" color="gray" textAlign="center">
             Create a post
           </Typography>

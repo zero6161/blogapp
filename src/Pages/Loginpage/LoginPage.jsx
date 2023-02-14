@@ -8,6 +8,7 @@ import { Twitter } from "@mui/icons-material";
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [err, setErr] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const submitCheck = (event) => {
@@ -24,7 +25,8 @@ const LoginPage = () => {
         sessionStorage.setItem("userToken", res.data.user.token);
         sessionStorage.setItem("password", res.data.user.password);
         navigate(`/home`);
-      });
+      })
+      .catch((eror) => setErr(true));
   };
   return (
     <>
@@ -64,6 +66,11 @@ const LoginPage = () => {
           <Button sx={{ mt: 2 }} variant="contained" fullWidth type="submit">
             Sign in
           </Button>
+          {err && (
+            <Alert sx={{ marginTop: 3 }} severity="error">
+              Please check again your email and password
+            </Alert>
+          )}
         </Box>
       </Box>
     </>
